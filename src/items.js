@@ -1,7 +1,8 @@
 export const items = [
   {
     id: "12345",
-    title: "Midnight Sun",
+    title:
+      "When Edward Cullen and Bella Swan met in Twilight, an iconic love story was born. But until now, fans have heard only Bella's side of the story",
     price: 559.53,
     rating: 5,
     image:

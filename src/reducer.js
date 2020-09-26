@@ -87,7 +87,7 @@ function reducer(state, action) {
 
       return {
         ...state,
-        items: foundItem,
+        basket: foundItem,
       };
     case "ADD_TO_BASKET":
       // LOGIC TO ADD TO BASKET

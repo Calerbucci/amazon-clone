@@ -15,7 +15,7 @@ function Login() {
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
         //do the login logic
-        history.push("/");
+        if (auth) history.push("/");
       })
       .catch((e) => alert(e.message));
   };
