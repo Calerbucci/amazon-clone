@@ -9,7 +9,6 @@ export const StateContext = createContext();
 
 
 //build the provider
-
 export const StateProvider = ({ reducer, initialState, children}) =>(
         <StateContext.Provider value={useReducer(reducer, initialState)}>
             {children}
@@ -17,6 +16,5 @@ export const StateProvider = ({ reducer, initialState, children}) =>(
 );
 
 //this is how we use the data layer inside of a component
-
 export const useStateValue = () => useContext(StateContext);
 

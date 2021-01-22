@@ -16,25 +16,32 @@ function reducer(state, action) {
         user: action.user,
       };
 
+    case "SET_ITEMS":
+      return{
+        ...state,
+        items: action.payload,
+      };
+
     case "SEARCH_ITEM":
-      let foundItem = [...state.items];
+      let foundItem = [];
+      
+      console.log('founI',foundItem);
+      console.log('stateI', state.items);
       if (action.searchField === "") {
-        // return nothing
+        // return initial state
+        foundItem = [...state.items];
       } else {
         // console.log(action);
-
         foundItem = state.items.filter((product) => {
           return product.title
             .toLowerCase()
             .includes(action.searchField.toLowerCase());
         });
-        console.log(foundItem);
-        console.log(state.items);
       }
 
       return {
         ...state,
-        basket: foundItem,
+        items: foundItem,
       };
     case "ADD_TO_BASKET":
       // LOGIC TO ADD TO BASKET
@@ -42,7 +49,12 @@ function reducer(state, action) {
         ...state,
         basket: [...state.basket, action.payload],
       };
-
+      
+    case "EMPTY_BASKET":
+      return{
+        ...state,
+        basket: [],
+      };
     case "REMOVE_FROM_BASKET":
       //LOGIC TO REMOVE FROM BASKET
       let newBasket = [...state.basket];

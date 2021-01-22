@@ -1,9 +1,11 @@
 import React from "react";
 import "./Home.css";
 import Product from "./Product";
-import { items } from "./items";
+import { useStateValue } from "./StateProvider";
 
-function Home() {
+ function Home() {
+
+const [{items}] = useStateValue();
   return (
     <div className="home">
       <img
@@ -12,61 +14,61 @@ function Home() {
         alt="/"
       />
 
+
       <div className="home__row">
-        
         <Product
           key={0}
-          id="12345"
-          title={items[0].title}
-          price={559.53}
-          rating={5}
-          image="https://d188rgcu4zozwl.cloudfront.net/content/B087V5N4Q4/resources/790453366"
+          id={items[0]?.id}
+          title={items[0]?.title}
+          price={items[0]?.price}
+          rating={items[0]?.rating}
+          image={items[0]?.image}
         />
         <Product
           key={1}
-          id="12346"
-          title={items[1].title}
-          price={16408.78}
-          rating={3}
-          image="https://m.media-amazon.com/images/I/81vs5TXBrlL._AC_UY218_.jpg"
+          id={items[1]?.id}
+          title={items[1]?.title}
+          price={items[1]?.price}
+          rating={items[1]?.rating}
+          image={items[1]?.image}
         />
       </div>
 
       <div className="home__row">
         <Product
           key={2}
-          id="12347"
-          title={items[2].title}
-          price={880.76}
-          rating={4}
-          image="https://m.media-amazon.com/images/I/71RQ3SYE3JL._AC_UY218_.jpg"
+          id={items[2]?.id}
+          title={items[2]?.title}
+          price={items[2]?.price}
+          rating={items[2]?.rating}
+          image={items[2]?.image}
         />
         <Product
           key={3}
-          id="12348"
-          title={items[3].title}
-          price={2726.09}
-          rating={5}
-          image="https://m.media-amazon.com/images/I/61Z6UicDVkL._AC_UL320_.jpg"
+          id={items[3]?.id}
+          title={items[3]?.title}
+          price={items[3]?.price}
+          rating={items[3]?.rating}
+          image={items[3]?.image}
         />
         <Product
           key={4}
-          id="12349"
-          title={items[4].title}
-          price={4632.65}
-          rating={5}
-          image="https://m.media-amazon.com/images/I/61RkjWOHljL._AC_UY218_.jpg"
+          id={items[4]?.id}
+          title={items[4]?.title}
+          price={items[4]?.price}
+          rating={items[4]?.rating}
+          image={items[4]?.image}
         />
       </div>
 
       <div className="home__row">
         <Product
           key={5}
-          id="12340"
-          title={items[5].title}
-          price={6000.56}
-          rating={5}
-          image="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6115/6115611_sd.jpg"
+          id={items[5]?.id}
+          title={items[5]?.title}
+          price={items[5]?.price}
+          rating={items[5]?.rating}
+          image={items[5]?.image}
         />
       </div>
     </div>

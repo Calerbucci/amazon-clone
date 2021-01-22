@@ -20,7 +20,8 @@ function Product({ image, title, rating, price, id }) {
     });
   }
 
-  return (
+  if(image !== undefined || title !== undefined || price !== undefined ) {
+    return (
     <div className="product">
       <div className="product__info">
         <p>{title}</p>
@@ -34,7 +35,7 @@ function Product({ image, title, rating, price, id }) {
             .map((_) => (
               <span role="img" aria-describedby>
                 {" "}
-                🌟
+                &#11088;
               </span>
             ))}
         </div>
@@ -47,6 +48,11 @@ function Product({ image, title, rating, price, id }) {
       </button>
     </div>
   );
+  }
+  else{
+    return (<div></div>);
+  }
+  
 }
 
 export default Product;

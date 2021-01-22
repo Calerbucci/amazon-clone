@@ -6,15 +6,24 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 
-function Header() {
+
+function Header({reinitItems}) {
   const [searchFieldValue, setSearchFielValue] = useState("");
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user}, dispatch] = useStateValue();
 
   const login = () => {
     if (user) auth.signOut();
   };
 
+  const reinitializeState = () =>{
+      dispatch({
+        type:"SET_ITEMS",
+        payload:reinitItems,
+      })
+  }
+
   const searchValue = () => {
+    // console.log(searchFieldValue);
     dispatch({
       type: "SEARCH_ITEM",
       searchField: searchFieldValue,
@@ -26,6 +35,7 @@ function Header() {
     <nav className="header">
       <Link to="/">
         <img
+          onClick={reinitializeState}
           className="header__logo"
           src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
           alt="/"
@@ -56,7 +66,7 @@ function Header() {
           </div>
         </Link>
 
-        <Link className="header__Link" to="/">
+        <Link className="header__Link" to="/orders">
           <div className="header__option">
             <span className="header__linkOne">Return</span>
             <span className="header__linkTwo">& Orders</span>
