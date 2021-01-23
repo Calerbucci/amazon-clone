@@ -15,6 +15,7 @@ function Header({reinitItems}) {
     if (user) auth.signOut();
   };
 
+
   const reinitializeState = () =>{
       dispatch({
         type:"SET_ITEMS",
@@ -58,7 +59,7 @@ function Header({reinitItems}) {
         <Link className="header__Link" to={!user && "/login"}>
           <div onClick={login} className="header__option">
             <span className="header__linkOne">
-              Hello, {!user ? "Guest" : user?.email}
+              Hello, {!user ? "Guest" : user?.displayName == null ? user?.email : user?.displayName}
             </span>
             <span className="header__linkTwo">
               {user ? "Sign out" : "Sign in"}

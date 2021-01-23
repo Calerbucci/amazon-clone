@@ -52,7 +52,7 @@ function Payment() {
           db.collection('users')
           .doc(user?.uid)
           .collection('orders')
-          .doc(paymentIntent.id)
+          .doc(paymentIntent?.id)
           .set({
             basket: basket,
             amount: paymentIntent.amount,
@@ -138,6 +138,7 @@ const handleChange = e => {
       />
             <button disabled={processing || disabled || succeeded}>
                       <span>{ processing ? <p> Processing</p> : "Buy Now"}</span>
+                      
             </button>
               </div>
                 {error && <div>{error}</div>}

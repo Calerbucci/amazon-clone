@@ -33,7 +33,7 @@ function Product({ image, title, rating, price, id }) {
           {Array(rating)
             .fill()
             .map((_) => (
-              <span role="img" aria-describedby>
+              <span role="img">
                 {" "}
                 &#11088;
               </span>

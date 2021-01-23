@@ -9,6 +9,7 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
   const register = (event) => {
     event.preventDefault();
     //register logic
@@ -16,6 +17,9 @@ function Signup() {
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         // create user and login
+        auth.user.updateProfile({
+          displayName: name
+        })
         history.push("/login");
         alert("sucessful");
       })
